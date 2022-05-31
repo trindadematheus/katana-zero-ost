@@ -23,20 +23,26 @@
       isVideoPlaying = false;
     }
   }
+
+  function handlePlayMusic(data) {
+    videoPlayerControl.loadVideoById(data.detail.videoId);
+    handleVideoData(data);
+    isVideoPlaying = true;
+  }
 </script>
 
-<div>
+<div class="body">
   <div class="video-player">
     <!-- todo: transform to global -->
     <YoutubePlayer
-      videoId="LAmeEPzmYNE"
-      on:PlayerReady={handleVideoData}
+      videoId={playlist[0].videoId}
       bind:player={videoPlayerControl}
+      on:PlayerReady={handleVideoData}
     />
   </div>
 
   <main class="container">
-    <img src="" alt="Music cover" class="music-image" />
+    <img src="/cover.jpg" alt="Music cover" class="music-image" />
     <!-- svelte-ignore a11y-distracting-elements -->
     <marquee>
       <h1 class="music-title">
@@ -46,7 +52,7 @@
     <h2 class="music-author">{videoAuthor}</h2>
 
     <div class="player">
-      <p class="player-info">00:00</p>
+      <p class="player-info">--:--</p>
 
       <div class="player-actions">
         <button class="player-action">{"<"}</button>
@@ -56,14 +62,16 @@
         <button class="player-action">{">"}</button>
       </div>
 
-      <p class="player-info">02:20</p>
+      <p class="player-info">--:--</p>
     </div>
 
     <div class="divider" />
 
-    {#each playlist as music}
-      <MusicItem {music} />
-    {/each}
+    <div class="music-list">
+      {#each playlist as music}
+        <MusicItem on:SelectMusic={handlePlayMusic} {music} />
+      {/each}
+    </div>
   </main>
 </div>
 
@@ -77,6 +85,10 @@
     width: 290px;
     margin: 0 auto;
     padding: 20px;
+    padding-bottom: 0px;
+
+    display: flex;
+    flex-direction: column;
   }
 
   .music-image {
@@ -139,5 +151,30 @@
     box-shadow: 0px 0px 6px #5af3f3;
     height: 40px;
     width: 40px;
+  }
+
+  .music-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .music-list::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  .music-list::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  /* Handle */
+  .music-list::-webkit-scrollbar-thumb {
+    background: #333;
+  }
+
+  /* Handle on hover */
+  .music-list::-webkit-scrollbar-thumb:hover {
+    background: #222;
   }
 </style>

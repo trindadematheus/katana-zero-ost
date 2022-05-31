@@ -1,11 +1,18 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import type { Music } from "../types/music";
 
+  const dispatch = createEventDispatcher();
+
   export let music: Music;
+
+  function handleClick() {
+    dispatch("SelectMusic", music);
+  }
 </script>
 
-<div class="music-item">
-  <img src="" alt="Music cover" />
+<div on:click={handleClick} class="music-item">
+  <img src="/cover.jpg" alt="Music cover" />
 
   <div class="music-info">
     <h2 class="music-title">{music.title}</h2>
@@ -48,6 +55,6 @@
   .music-author {
     margin-top: 4px;
     font-size: 8px;
-    color: white;
+    color: #777;
   }
 </style>
