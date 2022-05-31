@@ -9,6 +9,11 @@
   font-family: "Press Start 2P", cursive;
 }
 
+body {
+  background-color: #04070a;
+  height: 100vh;
+}
+
 body::after {
   content: " ";
   display: block;

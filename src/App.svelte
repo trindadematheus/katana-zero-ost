@@ -9,7 +9,7 @@
 
 <Router>
   <Route path="/">
-    <Menu />
+    <Player />
   </Route>
 
   <Route path="player">
