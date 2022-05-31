@@ -45,7 +45,7 @@ body::before {
   z-index: 2;
   pointer-events: none;
 
-  background-image: url(vhs.gif);
+  background-image: url(/vhs.gif);
   mix-blend-mode: screen;
 }
 
