@@ -1,6 +1,8 @@
 <script lang="ts">
-  import type { YoutubePlayerProps } from "src/types/youtube-player";
+  import MusicItem from "../components/MusicItem.svelte";
+  import type { YoutubePlayerProps } from "../types/youtube-player";
   import YoutubePlayer from "../components/YoutubePlayer.svelte";
+  import { playlist } from "../constants/playlist";
 
   let videoPlayerControl: YoutubePlayerProps;
   let isVideoPlaying = false;
@@ -25,12 +27,14 @@
 
 <div>
   <div class="video-player">
+    <!-- todo: transform to global -->
     <YoutubePlayer
       videoId="LAmeEPzmYNE"
       on:PlayerReady={handleVideoData}
       bind:player={videoPlayerControl}
     />
   </div>
+
   <main class="container">
     <img src="" alt="Music cover" class="music-image" />
     <!-- svelte-ignore a11y-distracting-elements -->
@@ -56,6 +60,10 @@
     </div>
 
     <div class="divider" />
+
+    {#each playlist as music}
+      <MusicItem {music} />
+    {/each}
   </main>
 </div>
 

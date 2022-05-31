@@ -34,7 +34,7 @@ body::after {
   background-size: 100% 2px, 3px 100%;
 }
 
-body::before {
+/* body::before {
   content: " ";
   display: block;
   position: fixed;
@@ -47,7 +47,7 @@ body::before {
 
   background-image: url(vhs.gif);
   mix-blend-mode: screen;
-}
+} */
 
 html {
   scroll-behavior: smooth;
