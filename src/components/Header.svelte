@@ -75,4 +75,34 @@
     box-shadow: 0 0 6px #fff;
     color: white;
   }
+
+  @media only screen and (max-width: 600px) {
+    .cover {
+      width: 150px;
+      height: 150px;
+    }
+
+    .info {
+      margin-left: 10px;
+    }
+
+    .track-name {
+      font-size: 12px;
+    }
+
+    .author {
+      font-size: 8px;
+    }
+
+    .actions {
+      margin-top: 20px;
+      gap: 6px;
+    }
+
+    .btn {
+      padding: 6px;
+
+      transition: all 400ms;
+    }
+  }
 </style>

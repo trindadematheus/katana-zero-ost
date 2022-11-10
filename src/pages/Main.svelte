@@ -11,6 +11,7 @@
 <style>
   .wrapper {
     height: 100vh;
+    width: 100%;
     padding: 0px 20px;
   }
 </style>

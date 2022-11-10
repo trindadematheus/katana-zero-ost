@@ -83,4 +83,34 @@
     color: #777;
     font-size: 10px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .track-item {
+      margin-bottom: 6px;
+      padding: 8px 0px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cover {
+      margin-right: 6px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .name {
+      font-size: 10px;
+      width: auto;
+    }
+
+    .author {
+      font-size: 8px;
+    }
+
+    .duration {
+      font-size: 8px;
+    }
+  }
 </style>
